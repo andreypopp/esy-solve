@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`encodeAsCUDFPackage() 1`] = `
+Object {
+  "conflicts": null,
+  "depends": Object {
+    "and": Array [
+      Object {
+        "or": Array [
+          Object {
+            "name": "dep",
+            "op": ">=",
+            "version": 2000000,
+          },
+        ],
+      },
+      Object {
+        "or": Array [
+          Object {
+            "name": "dep",
+            "op": "<",
+            "version": 3000000,
+          },
+        ],
+      },
+      Object {
+        "or": Array [
+          Object {
+            "name": "react",
+            "op": ">=",
+            "version": 14000,
+          },
+          Object {
+            "name": "react",
+            "op": ">=",
+            "version": 15000000,
+          },
+        ],
+      },
+      Object {
+        "or": Array [
+          Object {
+            "name": "react",
+            "op": ">=",
+            "version": 14000,
+          },
+          Object {
+            "name": "react",
+            "op": "<",
+            "version": 16000000,
+          },
+        ],
+      },
+      Object {
+        "or": Array [
+          Object {
+            "name": "react",
+            "op": "<",
+            "version": 15000,
+          },
+          Object {
+            "name": "react",
+            "op": ">=",
+            "version": 15000000,
+          },
+        ],
+      },
+      Object {
+        "or": Array [
+          Object {
+            "name": "react",
+            "op": "<",
+            "version": 15000,
+          },
+          Object {
+            "name": "react",
+            "op": "<",
+            "version": 16000000,
+          },
+        ],
+      },
+    ],
+  },
+  "installed": false,
+  "keep": null,
+  "package": "app",
+  "provides": null,
+  "version": 1000000,
+  "wasInstalled": false,
+}
+`;
