@@ -39,8 +39,8 @@ export type CUDFProperty = {
 export type CUDFPackage = {
   package: string,
   version: number,
-  installed: boolean,
-  wasInstalled: boolean,
+  installed: ?boolean,
+  wasInstalled: ?boolean,
   depends: ?CUDFPackageFormula,
   conflicts: ?CUDFPackageList<>,
   provides: ?CUDFPackageList<CUDFEqOp>,
@@ -102,18 +102,23 @@ export function renderCUDFDocument({preamble, universe, request}: CUDFDocument):
   for (const pkg of universe) {
     lines.push(`package: ${pkg.package}`);
     lines.push(`version: ${pkg.version}`);
-    lines.push(`installed: ${pkg.installed ? 'true' : 'false'}`);
+    if (pkg.installed != null) {
+      lines.push(`installed: ${pkg.installed ? 'true' : 'false'}`);
+    }
     if (pkg.wasInstalled != null) {
       lines.push(`was-installed: ${pkg.wasInstalled ? 'true' : 'false'}`);
     }
     if (pkg.depends != null) {
-      lines.push(`depends: ${renderCUDFPackageFormula(pkg.depends)}`);
+      const depends = renderCUDFPackageFormula(pkg.depends);
+      if (depends !== '') {
+        lines.push(`depends: ${depends}`);
+      }
     }
     if (pkg.conflicts != null) {
-      lines.push(`depends: ${renderCUDFPackageList(pkg.conflicts)}`);
+      lines.push(`conflicts: ${renderCUDFPackageList(pkg.conflicts)}`);
     }
     if (pkg.provides != null) {
-      lines.push(`depends: ${renderCUDFPackageList(pkg.provides)}`);
+      lines.push(`provides: ${renderCUDFPackageList(pkg.provides)}`);
     }
     if (pkg.keep != null) {
       lines.push(`keep: ${pkg.keep}`);
@@ -121,7 +126,7 @@ export function renderCUDFDocument({preamble, universe, request}: CUDFDocument):
     lines.push(EMPTYLINE);
   }
   // Request
-  lines.push('request:');
+  lines.push('request: install');
   if (request.install != null) {
     lines.push(`install: ${renderCUDFPackageList(request.install)}`);
   }
@@ -131,6 +136,8 @@ export function renderCUDFDocument({preamble, universe, request}: CUDFDocument):
   if (request.upgrade != null) {
     lines.push(`upgrade: ${renderCUDFPackageList(request.upgrade)}`);
   }
+  // This is important as otherwise some CUDF tools fail on its absence.
+  lines.push(EMPTYLINE);
   return lines.join(EOL);
 }
 

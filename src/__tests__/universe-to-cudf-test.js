@@ -2,11 +2,11 @@
  * @flow
  */
 
-import * as Univ from '../universe';
+import * as UnivToCUDF from '../universe-to-cudf';
 
 test('encodeAsCUDFPackage()', function() {
   expect(
-    Univ.encodeAsCUDFPackage({
+    UnivToCUDF.encodeAsCUDFPackage({
       name: 'app',
       version: '1.0.0',
       dependencies: mapFromObject({

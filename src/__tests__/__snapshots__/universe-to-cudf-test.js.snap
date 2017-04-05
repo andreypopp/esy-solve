@@ -10,7 +10,7 @@ Object {
           Object {
             "name": "dep",
             "op": ">=",
-            "version": 2000000,
+            "version": 2000001,
           },
         ],
       },
@@ -19,7 +19,7 @@ Object {
           Object {
             "name": "dep",
             "op": "<",
-            "version": 3000000,
+            "version": 3000001,
           },
         ],
       },
@@ -28,12 +28,12 @@ Object {
           Object {
             "name": "react",
             "op": ">=",
-            "version": 14000,
+            "version": 14001,
           },
           Object {
             "name": "react",
             "op": ">=",
-            "version": 15000000,
+            "version": 15000001,
           },
         ],
       },
@@ -42,12 +42,12 @@ Object {
           Object {
             "name": "react",
             "op": ">=",
-            "version": 14000,
+            "version": 14001,
           },
           Object {
             "name": "react",
             "op": "<",
-            "version": 16000000,
+            "version": 16000001,
           },
         ],
       },
@@ -56,12 +56,12 @@ Object {
           Object {
             "name": "react",
             "op": "<",
-            "version": 15000,
+            "version": 15001,
           },
           Object {
             "name": "react",
             "op": ">=",
-            "version": 15000000,
+            "version": 15000001,
           },
         ],
       },
@@ -70,22 +70,22 @@ Object {
           Object {
             "name": "react",
             "op": "<",
-            "version": 15000,
+            "version": 15001,
           },
           Object {
             "name": "react",
             "op": "<",
-            "version": 16000000,
+            "version": 16000001,
           },
         ],
       },
     ],
   },
-  "installed": false,
+  "installed": null,
   "keep": null,
   "package": "app",
   "provides": null,
-  "version": 1000000,
-  "wasInstalled": false,
+  "version": 1000001,
+  "wasInstalled": null,
 }
 `;
